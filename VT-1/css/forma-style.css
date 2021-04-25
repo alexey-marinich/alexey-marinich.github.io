@@ -1,0 +1,248 @@
+body {
+margin: 0px;
+background: black url(../img/fon.jpg) center / cover no-repeat fixed;
+}
+
+/*header*/
+
+.header {
+height: 150px;
+z-index: 1;
+}
+
+.header-name {
+font-size: 40px;
+font-family: 'Open Sans', sans-serif;
+margin-top: 40px;
+margin-left: 170px;
+position: absolute;
+opacity: .8;
+font-style:italic;
+}
+
+.header-link {
+text-decoration: none;
+color:white;
+}
+
+.color-text {
+color:#FF7149;
+}
+
+/*left-sidebar*/
+
+.left-sidebar {
+z-index: 1;
+float: left;
+width: 15%;
+height: 700px;
+}
+
+.nav-pane {
+line-height: 50px;
+display:grid;
+margin-top:10px;
+margin-left: 35px;
+position: absolute;
+}
+
+.nav-btn {
+transition:color .1s linear;
+font-size: 30px;
+color:white;
+text-decoration: none;
+font-family: 'Open Sans', sans-serif;
+font-weight: 700;
+}
+
+.nav-btn:hover {
+color:#FF7149;
+}
+
+/*main*/
+
+.main {
+position: absolute;
+display: inline-block;
+width: 85%;
+margin: 0 auto;
+height: 700px;
+color:white;
+}
+
+.container{
+font-size: 20px;
+max-width: 700px;
+width: 100%;
+background-color: #fff;
+padding: 25px 30px;
+border-radius: 5px;
+box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+margin-left:320px;
+margin-top: 60px;
+}
+.container .title{
+font-size: 25px;
+font-weight: 500;
+position: relative;
+color: #36274c;
+font-family: 'Open Sans', sans-serif;
+font-weight: 700;
+}
+.container .title::before{
+content: "";
+position: absolute;
+left: 0;
+bottom: 0;
+height: 3px;
+width: 30px;
+
+}
+.content form .user-details{
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+margin: 20px 0 12px 0;
+}
+form .user-details .input-box{
+margin-bottom: 15px;
+width: calc(100% / 2 - 20px);
+}
+form .input-box span.details{
+display: block;
+font-weight: 500;
+margin-bottom: 5px;
+color: #36274c;
+font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
+}
+.user-details .input-box input{
+height: 45px;
+width: 100%;
+outline: none;
+font-size: 16px;
+border-radius: 5px;
+padding-left: 15px;
+border: 1px solid #ccc;
+border-bottom-width: 2px;
+transition: all 0.3s ease;
+}
+.user-details .input-box input:focus,
+.user-details .input-box input:valid{
+border-color: #FF7149;
+}
+
+form .button{
+height: 45px;
+margin: 35px 0
+}
+
+form .button input{
+height: 100%;
+width: 100%;
+border-radius: 5px;
+border: none;
+color: #fff;
+font-size: 18px;
+font-weight: 500;
+letter-spacing: 1px;
+cursor: pointer;
+transition: box-shadow 0.1s linear;
+background-color:#36274c;
+}
+form .button input:hover{
+box-shadow: 0px 0px 10px #FF7149;
+}
+@media(max-width: 584px){
+.container{
+max-width: 100%;
+}
+form .user-details .input-box{
+margin-bottom: 15px;
+width: 100%;
+}
+
+.content form .user-details{
+max-height: 300px;
+overflow-y: scroll;
+}
+.user-details::-webkit-scrollbar{
+width: 5px;
+}
+}
+@media(max-width: 459px){
+.container .content .category{
+flex-direction: column;
+  }
+}
+
+/*footer*/
+.footer {
+z-index: 1;
+width: 100%;
+height:70px;
+line-height:17px;
+color: white;
+position: absolute;
+bottom: 0px;
+background-color: white;
+
+}
+
+.footer-autor {
+padding-top: 8px;
+padding-left:8px;
+height: 10%;
+font-family: 'Open Sans', sans-serif;
+font-weight: 700;
+margin: 0;
+font-size:15px;
+color:#36274c;
+}
+
+.mail-icon {
+height: 15px;
+margin-left:8px;
+}
+
+.phone-icon {
+margin-left:8px;
+height: 17px;
+margin-right: 2px;
+}
+
+.btn-info {
+font-size: 15px;
+margin: 0px;
+text-decoration: none;
+color:#36274c;
+font-family: 'Open Sans', sans-serif;
+font-weight: 700;
+}
+
+/*dec*/
+
+.dec-block {
+z-index: 0;
+background-color: #36274c;
+height: 100%;
+width: 100%;
+position: absolute;
+opacity: .9;
+}
+
+<?php
+extract($_REQUEST);
+$file=fopen("form-save.txt","a+");
+fwrite($file,"name :");
+fwrite($file,$username ."\n");
+fwrite($file,"Email :");
+fwrite($file,$email ."\n");
+fwrite($file,"Старт: ");
+fwrite($file,$startrang ."\n");
+fwrite($file,"Финиш: ");
+fwrite($file,$finishrang ."\n");
+fwrite($file,"Account: ");
+fwrite($file,$acclink ."\n");
+fclose($file);
+?>
